@@ -1,5 +1,8 @@
 <template>
   <div class="v-catalog">
+    <router-link :to="{name: 'v-cart', params: {cart_data: CART}}">
+      <div class="v-catalog_link_to_cart">Корзина: {{CART.length}}</div>
+    </router-link>
     <h1>Картины эпохи возрождения</h1>
     <div class="v-catalog_list">
       <v-catalog-good
@@ -25,7 +28,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'GOODS'
+      'GOODS',
+      'CART'
     ])
   },
   methods: {
@@ -56,5 +60,13 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+  }
+  .v-catalog_link_to_cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 10px
   }
 </style>

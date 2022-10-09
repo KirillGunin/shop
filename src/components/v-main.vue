@@ -1,18 +1,16 @@
 <template>
   <div class="v-main">
     {{title}}
-    <v-catalog/>
-    <v-cart v-if="CART.length" :cart_data="CART"/>
+    <!-- сохранение состояния компонента при изменении url -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import vCatalog from './v-catalog.vue';
-import vCart from './v-cart.vue';
-import {mapGetters} from 'vuex'
 export default {
 name: 'v-main',
-components: { vCatalog, vCart },
 props: {},
   data() {
     return {
@@ -20,7 +18,6 @@ props: {},
     }
   },
   computed: {
-    ...mapGetters(['CART'])
   }
 }
 </script>
