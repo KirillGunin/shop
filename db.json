@@ -1,0 +1,16 @@
+{
+  "goods": [
+    { "id": "1",
+      "img": "1.jpeg",
+      "name": "Рождение Венеры",
+      "price": "1500",
+      "available": "true"
+    },
+    { "id": "2",
+      "img": "2.jpeg",
+      "name": "Тайная вечерия",
+      "price": "1000",
+      "available": "true"
+    }
+  ]
+}
