@@ -32,7 +32,7 @@
     },
     mounted() {
       // встроенный метод set (куда, что, сколько)
-      this.$set(this.cart_good_data, 'count', 1)
+      // this.$set(this.cart_good_data, 'count', 1)
     },
   }
 </script>
@@ -43,7 +43,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-
     height: 300px;
     border: solid 1px lightgrey;
     width: 250px;

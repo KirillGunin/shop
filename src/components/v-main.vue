@@ -1,24 +1,27 @@
 <template>
   <div class="v-main">
-    {{title}}
+    <v-header/>
     <!-- сохранение состояния компонента при изменении url -->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
+    <v-footer/>
   </div>
 </template>
 
 <script>
+import vHeader from '@/components/v-header.vue'
+import vFooter from '@/components/v-footer.vue'
 export default {
 name: 'v-main',
+components: { vHeader, vFooter },
 props: {},
   data() {
     return {
-      title: 'Main'
     }
   },
-  computed: {
-  }
+  // computed: {
+  // }
 }
 </script>
 
@@ -28,7 +31,7 @@ props: {},
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 900px;
+  width: 100%;
   margin: 0 auto
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="v-cart">
-    <router-link :to="{name: 'v-catalog'}">
+    <!-- <router-link :to="{name: 'v-catalog'}">
       <div class="v-catalog_link_to_cart">К каталогу</div>
-    </router-link>
+    </router-link> -->
     <h1>Корзина</h1>
     <p v-if="!cart_data.length">Товаров в корзине пока нет</p>
     <v-cart-good
-    v-for="(good, index) in cart_data"
+    v-for="(good, index) in CART"
     :key="good.id"
     :cart_good_data="good"
     @deleteGoodFromCart="deleteGoodFromCart(index)"
@@ -19,7 +19,7 @@
 
 <script>
   import vCartGood from './v-cart-good.vue'
-  import {mapActions} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
   export default {
     name: 'v-cart',
     components: {vCartGood},
@@ -37,7 +37,10 @@
     computed: {
       cartTotal() {
         return this.cart_data.map(el => el.price).reduce((acc,el) => acc =  acc + el, 0)
-      }
+      },
+      ...mapGetters([
+        'CART'
+      ])
     },
     methods: {
       ...mapActions([
@@ -46,7 +49,7 @@
       deleteGoodFromCart(index) {
         this.DELETE_FROM_CART(index)
       }
-    }
+    },
   }
 </script>
 
